@@ -1,5 +1,9 @@
-## Hi there 👋
+## Seafile 👋
+Ver en "http://localhost:8200"
 
+Usuario: daniru@hotmail.es
+
+Password: usuario
 <!--
 **Druimarti/druimarti** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
