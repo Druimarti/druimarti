@@ -1,0 +1,29 @@
+services:
+
+  mariadb:
+    image: mariadb:latest
+    container_name: seafile-db
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=usuario
+    volumes:
+      - ./seafile-db:/var/lib/mysql
+          
+  seafile:
+    image: seafileltd/seafile-mc:11.0-latest
+    container_name: seafile
+    restart: unless-stopped
+    ports:
+      - "8200:80"
+#      - "8443:443"
+    volumes:
+      - ./seafile-data:/shared
+    environment:
+      - DB_HOST=mariadb
+      - DB_ROOT_PASSWD=usuario
+      - TIME_ZONE=Europe/Madrid
+      - SEAFILE_ADMIN_EMAIL=daniru@hotmail.es
+      - SEAFILE_ADMIN_PASSWORD=usuario
+      - SEAFILE_SERVER_LETSENCRYPT=false​
+    depends_on:
+      - mariadb
